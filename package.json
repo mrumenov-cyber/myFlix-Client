@@ -2,11 +2,11 @@
   "name": "npm",
   "version": "1.0.0",
   "description": "react",
-  "source": "index.js",
-  "start": "parcel",
-  "build": "parcel build",
+  "source": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "parcel",
+    "build": "parcel build"
   },
   "repository": {
     "type": "git",
@@ -26,7 +26,6 @@
     "react-dom": "^17.0.2"
   },
   "devDependencies": {
-    "@parcel/transformer-sass": "^2.0.1",
     "parcel": "^2.0.1"
   }
 }
