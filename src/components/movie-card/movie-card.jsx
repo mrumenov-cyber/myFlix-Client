@@ -1,5 +1,4 @@
 import React from 'react';
-import { MovieView } from '../movie-view/movie-view';
 
 export class MovieCard extends React.Component
 {
