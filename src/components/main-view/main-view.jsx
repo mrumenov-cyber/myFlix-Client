@@ -32,8 +32,6 @@ export default class MainView extends React.Component {
     };
   }
 
-<<<<<<< Updated upstream
-=======
   componentDidMount(){
     axios.get('https://stormy-inlet-21959.herokuapp.com/movies')
       .then(response => {
@@ -51,7 +49,6 @@ this function is invoked and updates
 the state of the `selectedMovie` *property 
 to that movie*/
 
->>>>>>> Stashed changes
   setSelectedMovie(newSelectedMovie) {
     this.setState({
       selectedMovie: movie
