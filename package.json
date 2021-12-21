@@ -24,14 +24,11 @@
   "dependencies": {
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
-<<<<<<< Updated upstream
   },
   "devDependencies": {
     "@parcel/transformer-sass": "^2.0.1",
     "parcel": "^2.0.1"
   },
   "main": "index.js"
-=======
-  }
->>>>>>> Stashed changes
 }
+

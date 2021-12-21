@@ -85,13 +85,23 @@ onLoggedIn(user) {
         that selected movie will be returned otherwise, 
         all *movies will be returned*/}
         {selectedMovie
-          ? <MovieView movie={selectedMovie} onBackClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); }}/>
-          : movies.map(movie => (
-            <MovieCard key={movie._id} movie={movie} onMovieClick={(newSelectedMovie) => { this.setSelectedMovie(newSelectedMovie) }}/>
-         ))
-        }
-      </div>
+          ? (
+        <Row className="justify-content-md-center">
+            <Col md={8}>
+              <MovieView movie={selectedMovie} onBackClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); }}/>
+            </Col>
+        </Row>
+       )
+        : (
+          <Row className="justify-content-md-center">
+            {movies.map(movie => (
+              <MovieCard key={movie._id} movie={movie} onMovieClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); }}/>
+            ))}
+          </Row>
+        )
+      }
+  </div>
       </Container>
     );
   }
-}
+} 

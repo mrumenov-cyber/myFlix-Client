@@ -1,5 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Card from 'react-bootstrap/Button';
+
 
 export class MovieCard extends React.Component
 {
