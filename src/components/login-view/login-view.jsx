@@ -28,6 +28,7 @@ export function LoginView(props) {
       <Button variant="primary" type="submit" onClick={handleSubmit}>
         Submit
       </Button>
+      <Button className="new-account-button">Create New Account</Button>
     </Form>
   );
 }

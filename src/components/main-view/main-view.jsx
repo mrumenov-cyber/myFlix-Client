@@ -51,11 +51,11 @@ this function is invoked and updates
 the state of the `selectedMovie` *property 
 to that movie*/
 
-  setSelectedMovie(newSelectedMovie) {
-    this.setState({
-      selectedMovie: movie
-    });
-  }
+setSelectedMovie(newSelectedMovie) {
+  this.setState({
+    selectedMovie: newSelectedMovie
+  });
+}
 
 /* When a user successfully logs in, 
 this function updates the `user` property 
@@ -93,13 +93,13 @@ onLoggedIn(user) {
         </Row>
        )
         : (
-          <Row className="justify-content-md-center">
-            {movies.map(movie => (
-              <MovieCard key={movie._id} movie={movie} onMovieClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); }}/>
-            ))}
-          </Row>
-        )
-      }
+        <Row className="justify-content-md-center">
+          {movies.map(movie => (
+            <MovieCard key={movie._id} movie={movie} onMovieClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); }}/>
+          ))}
+        </Row>
+      )
+    }
   </div>
       </Container>
     );
