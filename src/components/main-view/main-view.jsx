@@ -1,5 +1,7 @@
 import React from 'react';
 import axios from 'axios';
+import Container from 'react-bootstrap/Container';
+
 
 import { LoginView } from '../login-view/login-view';
 import { MovieCard } from '../movie-card/movie-card';
@@ -77,6 +79,7 @@ onLoggedIn(user) {
     if (movies.length === 0) return <div className="main-view">The list is empty!</div>;
   
     return (
+      <Container>
       <div className="main-view">
         {/*If the state of `selectedMovie` is not null, 
         that selected movie will be returned otherwise, 
@@ -88,6 +91,7 @@ onLoggedIn(user) {
          ))
         }
       </div>
+      </Container>
     );
   }
 }
