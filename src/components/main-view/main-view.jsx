@@ -11,23 +11,19 @@ export default class MainView extends React.Component {
 
   constructor(){
     super();
-    //Initial state is set to null
     this.state = {
       movies: [],
-      selectedMovie:null,
-      user: null
-    };
+      selectedMovie:null
+    }
   }
 
-  componentDidMount(){
+  componentDidMount() {
     axios.get('https://stormy-inlet-21959.herokuapp.com/movies')
-      .then(response => {
-        this.setState({
-          movies: response.data
-        });
+      .then(res => {
+        this.setState({movies: res.data})
       })
-      .catch(error => {
-        console.log(error);
+      .catch(e => {
+        console.error("Something wrong in fetching the movies!", e);
       });
   }
   
