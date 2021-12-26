@@ -5,15 +5,21 @@ import "./movie-view.scss";
 
 export class MovieView extends React.Component {
 
+  keypressCallback(event) {
+    console.log(event.key);
+  }
+
+  componentDidMount() {
+    document.addEventListener('keypress', event => {
+      console.log(event.key);
+    });
+  }
   
-<<<<<<< Updated upstream
-=======
   componentWillUnmount() {
     document.removeEventListener('keypress', this.keypressCallback);
   }
 
   
->>>>>>> Stashed changes
   render() {
     const { movie, onBackClick } = this.props;
 

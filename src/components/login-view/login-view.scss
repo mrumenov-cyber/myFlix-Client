@@ -1,33 +1,33 @@
 .form-label {
-    font-weight: 400 !important;
+  font-weight: 400 !important;
 }
 
 .LoginView-container{
-  width: 50%;
-  margin:auto;
-  position:relative;
-  margin-top: 60px;
+width: 50%;
+margin:auto;
+position:relative;
+margin-top: 60px;
 }
 
 .submit-button, .new-account-button{
-  margin-top: 30px;
-  margin-right: 30px;
+margin-top: 30px;
+margin-right: 30px;
 }
 
-  html,
-  body,
-  #loginCard > div {
-    background: hsl(186, 100%, 38%) !important;
-    height: 100%;
-  }
-  
-  html,
-  body,
-  #loginContainer > div {
-    background: hsl(186, 100%, 38%) !important;
-    height: 100%;
-  }
-  
-  body {
-    font-family: "Arial", sans-serif !important;
-  }
+html,
+body,
+#loginCard > div {
+  background: hsl(186, 100%, 38%) !important;
+  height: 100%;
+}
+
+html,
+body,
+#loginContainer > div {
+  background: hsl(186, 100%, 38%) !important;
+  height: 100%;
+}
+
+body {
+  font-family: "Arial", sans-serif !important;
+}

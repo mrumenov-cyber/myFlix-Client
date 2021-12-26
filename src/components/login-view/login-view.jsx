@@ -1,5 +1,3 @@
-<<<<<<< Updated upstream
-=======
 import React, { useState } from 'react';
 import {Form, Button, Card, CardGroup, Container, Row, Col} from 'react-bootstrap';
 import './login-view.scss';
@@ -47,4 +45,3 @@ LoginView.propTypes = {
   }),
   onLoggedIn: PropTypes.func.isRequired,
 };
->>>>>>> Stashed changes
