@@ -1,0 +1,15 @@
+.card {
+    height: 100%;
+    margin-top:20px;
+    margin-bottom: 20px;
+}
+
+.card-img-top {
+    align-self: center;
+}
+
+.card-text {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
