@@ -37587,28 +37587,44 @@ in state to that *particular user*/ onLoggedIn(authData) {
                         lineNumber: 128
                     },
                     __self: this,
-                    children: /*#__PURE__*/ _jsxRuntime.jsx(_reactRouterDom.Routes, {
+                    children: /*#__PURE__*/ _jsxRuntime.jsxs(_reactRouterDom.Routes, {
                         __source: {
                             fileName: "src/components/main-view/main-view.jsx",
                             lineNumber: 129
                         },
                         __self: this,
-                        children: /*#__PURE__*/ _jsxRuntime.jsx(_reactRouterDom.Route, {
-                            exact: true,
-                            path: "/",
-                            element: movies.map((m)=>/*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Col, {
-                                    md: 3,
-                                    children: /*#__PURE__*/ _jsxRuntime.jsx(_movieCard.MovieCard, {
-                                        movie: m
-                                    })
-                                }, m._id)
-                            ),
-                            __source: {
-                                fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 130
-                            },
-                            __self: this
-                        })
+                        children: [
+                            /*#__PURE__*/ _jsxRuntime.jsx(_reactRouterDom.Route, {
+                                exact: true,
+                                path: "/",
+                                element: movies.map((m)=>/*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Col, {
+                                        md: 3,
+                                        children: /*#__PURE__*/ _jsxRuntime.jsx(_movieCard.MovieCard, {
+                                            movie: m
+                                        })
+                                    }, m._id)
+                                ),
+                                __source: {
+                                    fileName: "src/components/main-view/main-view.jsx",
+                                    lineNumber: 130
+                                },
+                                __self: this
+                            }),
+                            /*#__PURE__*/ _jsxRuntime.jsx(_reactRouterDom.Route, {
+                                exact: true,
+                                path: "/movies/:movieId",
+                                render: ({ match , history  })=>{
+                                    return(/*#__PURE__*/ _jsxRuntime.jsx("h1", {
+                                        children: "Hello"
+                                    }));
+                                },
+                                __source: {
+                                    fileName: "src/components/main-view/main-view.jsx",
+                                    lineNumber: 138
+                                },
+                                __self: this
+                            })
+                        ]
                     })
                 })
             ]
@@ -37654,6 +37670,7 @@ class MovieCard extends _reactDefault.default.Component {
                 /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Card.Img, {
                     variant: "top",
                     src: movie.ImagePath,
+                    crossOrigin: "anonymous",
                     __source: {
                         fileName: "src/components/movie-card/movie-card.jsx",
                         lineNumber: 14
@@ -39444,7 +39461,7 @@ class MovieView extends _reactDefault.default.Component {
                     },
                     __self: this,
                     children: /*#__PURE__*/ _jsxRuntime.jsx("img", {
-                        src: movie.ImagePath,
+                        src: "https://static.wikia.nocookie.net/jurassicpark/images/f/f5/Jurassic_World_Teaser_Poster.jpg/revision/latest?cb=20141022170706&path-prefix=de",
                         crossOrigin: "anonymous",
                         style: {
                             width: '15.85rem'
