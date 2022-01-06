@@ -2,12 +2,15 @@ import React from 'react';
 import axios from 'axios';
 
 import "./main-view.scss";
+import {Form, Button, Card, CardGroup, Container, Row, Nav, Col, Navbar} from 'react-bootstrap';
 
 import { RegistrationView } from "../registration-view/registration-view";
 import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
-import {Form, Button, Card, CardGroup, Container, Row, Nav, Col, Navbar} from 'react-bootstrap';
+import { DirectorView } from '../director-view/director-view';
+import { GenreView } from '../genre-view/genre-view';
 import { LoginView } from "../login-view/login-view";
+
 import { BrowserRouter as Router, Routes, Route, Redirect } from "react-router-dom";
 
 export default class MainView extends React.Component {
@@ -55,8 +58,6 @@ export default class MainView extends React.Component {
     }
   }
 
-
-
 /*When a movie is clicked, 
 this function is invoked and updates 
 the state of the `selectedMovie` *property 
@@ -68,6 +69,11 @@ setSelectedMovie(newSelectedMovie) {
   });
 }
 
+onRegistration(registration) {
+        this.setState({
+            registration,
+        });
+    }
 /* When a user successfully logs in, 
 this function updates the `user` property 
 in state to that *particular user*/
@@ -134,14 +140,64 @@ onLoggedOut() {
                 </Col>
               ))
             } />
-
-            <Route exact path="/movies/:movieId" render={({ match, history }) => { 
-              return <h1>Hello</h1>
-            }} />
-
+            <Route path="/movies/:movieId" render={({ match, history }) => {
+                        if (!user) return <Col>
+                            <LoginView onLoggedIn={user => this.onLoggedIn(user)} />
+                        </Col>
+                        if (movies.length === 0) return <div className="main-view" />;
+                        return <Col md={8}>
+                            <MovieView movie={movies.find(m => m._id === match.params.movieId)} onBackClick={() => history.goBack()} />
+                        </Col>
+                    }} />
+                    <Route
+                        path="/directors/:Name"
+                        render={({ match, history }) => {
+                            if (!user)
+                                return (
+                                    <LoginView onLoggedIn={(user) => this.onLoggedIn(user)} />
+                                );
+                            if (movies.length === 0) return <div className="main-view" />;
+                            return (
+                                <Col md={8}>
+                                    <DirectorView
+                                        Director={
+                                            movies.find(
+                                                (m) => m.Director.Name === match.params.Name
+                                            ).Director
+                                        }
+                                        movies={movies}
+                                        onBackClick={() => history.goBack()}
+                                    />
+                                </Col>
+                            );
+                        }}
+                    />
+                    <Route
+                        path="/genres/:Name"
+                        render={({ match, history }) => {
+                            if (!user)
+                                return (
+                                    <LoginView onLoggedIn={(user) => this.onLoggedIn(user)} />
+                                );
+                            if (movies.length === 0) return <div className="main-view" />;
+                            return (
+                                <Col md={8}>
+                                    <GenreView
+                                        movies={movies}
+                                        Genre={
+                                            movies.find((m) => m.Genre.Name === match.params.Name)
+                                                .Genre
+                                        }
+                                        onBackClick={() => history.goBack()}
+                                    />
+                                </Col>
+                            );
+                        }}
+                    />
           </Routes>
         </Row>
       </Router>
     );
   }
 } 
+

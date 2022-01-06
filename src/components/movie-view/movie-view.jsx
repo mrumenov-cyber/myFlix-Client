@@ -27,7 +27,7 @@ export class MovieView extends React.Component {
     return (
       <div className="movie-view">
         <div className="movie-poster">
-          <img src="https://static.wikia.nocookie.net/jurassicpark/images/f/f5/Jurassic_World_Teaser_Poster.jpg/revision/latest?cb=20141022170706&path-prefix=de" crossOrigin='anonymous' style={{width:'15.85rem'}}/>
+          <img src={movie.ImagePath} crossOrigin='anonymous' style={{width:'15.85rem'}}/>
         </div>
         <div className="movie-title">
           <h4 className="label-value">Title: {movie.Title}</h4>

@@ -73,6 +73,14 @@ body {
 .label {
   font-weight: 500 !important;
 }
+.director-back-button:hover, .director-back-button:focus, .director-back-button:active {
+  background: #00aec2 !important;
+  border-color: #000 !important;
+}
+.genre-back-button:hover, .genre-back-button:focus, .genre-back-button:active {
+  background: #00aec2 !important;
+  border-color: #000 !important;
+}
 .my-flix {
   color: steelblue;
 }
