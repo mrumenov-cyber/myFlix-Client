@@ -134,6 +134,11 @@ onLoggedOut() {
                 </Col>
               ))
             } />
+
+            <Route exact path="/movies/:movieId" render={({ match, history }) => { 
+              return <h1>Hello</h1>
+            }} />
+
           </Routes>
         </Row>
       </Router>
