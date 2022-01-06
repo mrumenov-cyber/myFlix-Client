@@ -149,7 +149,7 @@ onLoggedOut() {
                             <MovieView movie={movies.find(m => m._id === match.params.movieId)} onBackClick={() => history.goBack()} />
                         </Col>
                     }} />
-                    <Route
+            <Route
                         path="/directors/:Name"
                         render={({ match, history }) => {
                             if (!user)
@@ -172,7 +172,7 @@ onLoggedOut() {
                             );
                         }}
                     />
-                    <Route
+            <Route
                         path="/genres/:Name"
                         render={({ match, history }) => {
                             if (!user)
