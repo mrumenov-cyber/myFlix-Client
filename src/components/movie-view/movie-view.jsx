@@ -1,24 +1,12 @@
 import React from 'react';
+import axios from 'axios';
 import PropTypes from 'prop-types';
 import {Form, Button, Card, CardGroup, Container, Row, Col} from 'react-bootstrap';
-import "./movie-view.scss";
 import { Link } from "react-router-dom";
 
+import "./movie-view.scss";
+
 export class MovieView extends React.Component {
-
-  keypressCallback(event) {
-    console.log(event.key);
-  }
-
-  componentDidMount() {
-    document.addEventListener('keypress', event => {
-      console.log(event.key);
-    });
-  }
-  
-  componentWillUnmount() {
-    document.removeEventListener('keypress', this.keypressCallback);
-  }
 
   
   render() {
@@ -44,19 +32,15 @@ export class MovieView extends React.Component {
           <span className="label">Director: </span>
           <span className="value">{movie.Director.Name}</span>
         </div>
-        <div className="director-bio">
-          <span className="director">Bio: </span>
-          <span className="value">{movie.Director.Bio}</span>
-        </div>
         
-        <Button className='back-button' onClick={() => {onBackClick (null);}}>Back</Button>
+        <Button className='back-button btn btn-danger' onClick={() => {onBackClick (null);}}>Back</Button>
 
         <Link to={`/directors/${movie.Director.Name}`}>
-          <Button variant="link">Director</Button>
+          <Button className='director-btn btn btn-success'>Director</Button>
         </Link>
 
         <Link to={`/genres/${movie.Genre.Name}`}>
-          <Button variant="link">Genre</Button>
+          <Button className='genre-btn btn btn-primary'>Genre</Button>
         </Link>
        </div>
     );
@@ -77,7 +61,6 @@ MovieView.propTypes = {
       Birth: PropTypes.date,
       Death: PropTypes.date
     }),
-    Actors: PropTypes.array,
     Featured: PropTypes.bool,
     ImagePath: PropTypes.string.isRequired
     }).isRequired,

@@ -7,15 +7,12 @@ import { Container, Row, Col, Button } from 'react-bootstrap';
 export class DirectorView extends React.Component {
   render() {
 
-    const { director, onBackClick } = this.props;
+    const { Director, onBackClick } = this.props;
 
     return (
       <Container fluid>
-        <Row>
-          <Col className="director-image value"><img className="director-img" src={director.ImagePath} /></Col>
-        </Row>
         <Row className="director-name">
-          <Col style={{fontSize:"40px"}}>{director.Name}</Col>
+          <Col style={{fontSize:"40px"}}>{Director.Name}</Col>
         </Row>
 
         <Row className="director-props">
@@ -24,7 +21,7 @@ export class DirectorView extends React.Component {
               <Col>Bio: </Col>
             </Row>
             <Row className="director-bio-content">
-              <Col className="value" md={12}>{director.Bio}</Col>
+              <Col className="value" md={12}>{Director.Bio}</Col>
             </Row>
           </Col>
         </Row>

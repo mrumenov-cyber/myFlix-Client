@@ -4,6 +4,7 @@ import './login-view.scss';
 import PropTypes from 'prop-types';
 import { RegistrationView } from "../registration-view/registration-view";
 import axios from 'axios';
+import {MainView} from "../main-view/main-view";
 
 export function LoginView(props) {
   const [username, setUsername] = useState('');
@@ -86,7 +87,7 @@ export function LoginView(props) {
       <Button className='submit-button' variant="primary" type="submit" onClick={handleSubmit}>
         Submit
       </Button>
-      <Button className="new-account-button" onClick={event =>  window.location.href='../registration-view/registration-view'}>
+      <Button className="new-account-button">
         Create New Account
       </Button>
     </Form>

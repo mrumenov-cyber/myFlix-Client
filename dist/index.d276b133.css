@@ -50,6 +50,7 @@ body {
   height: 100%;
   margin-top: 20px;
   margin-bottom: 20px;
+  margin-left: 20px;
 }
 
 .card-img-top {
@@ -61,13 +62,19 @@ body {
   white-space: nowrap;
   text-overflow: ellipsis;
 }
-.back-button {
+.back-button, .genre-btn, .director-btn {
   margin-top: 20px;
   margin-bottom: 40px;
+  margin-right: 30px;
+}
+
+.back-button:hover, .back-button:focus, .back-button:active {
+  background: #00aec2 !important;
+  border-color: #000 !important;
 }
 
 .movie-poster {
-  margin: 40px;
+  margin: 30px;
 }
 
 .label {
@@ -77,11 +84,29 @@ body {
   background: #00aec2 !important;
   border-color: #000 !important;
 }
+
+.director-back-button, .director-name {
+  margin-top: 40px;
+}
+
+.director-bio {
+  font-size: larger;
+  margin-top: 20px;
+}
 .genre-back-button:hover, .genre-back-button:focus, .genre-back-button:active {
   background: #00aec2 !important;
   border-color: #000 !important;
 }
+
+.genre-back-button, .genre-name {
+  margin-top: 40px;
+}
+
+.genre-description {
+  font-size: larger;
+  margin-top: 20px;
+}
 .my-flix {
   color: steelblue;
 }
-/*# sourceMappingURL=index.1d334ea1.css.map */
+/*# sourceMappingURL=index.d276b133.css.map */

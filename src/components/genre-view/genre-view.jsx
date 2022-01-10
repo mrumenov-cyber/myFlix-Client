@@ -7,12 +7,12 @@ import { Container, Row, Col, Button } from 'react-bootstrap';
 export class GenreView extends React.Component {
   render() {
 
-    const { genre, onBackClick } = this.props;
+    const { Genre, onBackClick } = this.props;
 
     return (
       <Container fluid>
         <Row className="genre-name">
-          <Col style={{fontSize:"40px"}}>{genre.Name}</Col>
+          <Col style={{fontSize:"40px"}}>{Genre.Name}</Col>
         </Row>
 
         <Row className="genre-props">
@@ -21,7 +21,7 @@ export class GenreView extends React.Component {
               <Col>Description: </Col>
             </Row>
             <Row className="genre-description-content">
-              <Col className="value" md={12}>{genre.Description}</Col>
+              <Col className="value" md={12}>{Genre.Description}</Col>
             </Row>
           </Col>
         </Row>

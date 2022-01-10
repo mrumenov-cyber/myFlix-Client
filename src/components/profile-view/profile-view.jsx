@@ -2,8 +2,6 @@ import React, { useState } from "react";
 import axios from "axios";
 import { Form, Button, Card, Container, Row, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { setUser, updateUser } from '../../actions/actions';
-import { connect } from 'react-redux';
 
 import "./profile-view.scss";
 
