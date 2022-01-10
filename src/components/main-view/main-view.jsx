@@ -10,7 +10,7 @@ import { MovieView } from '../movie-view/movie-view';
 import { DirectorView } from '../director-view/director-view';
 import { GenreView } from '../genre-view/genre-view';
 import { LoginView } from "../login-view/login-view";
-//import {ProfileView} from "../profile-view/profile-view"
+import {ProfileView} from "../profile-view/profile-view"
 
 import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
 
@@ -123,10 +123,9 @@ onLoggedOut() {
       <Router>
         <Navbar expand="lg" bg="dark" variant="dark" className="main-view-Navbar">
           <Container>
-            <Navbar.Brand href="#myflix">My Flix</Navbar.Brand>
+            <Navbar.Brand href="/">My Flix</Navbar.Brand>
             <Nav className="me-auto">
               <Nav.Link href="/profile">My Profile</Nav.Link>
-              <Nav.Link href="#update-profile">Update Profile</Nav.Link>
               <Nav.Link href="#logout" onClick={() => { this.onLoggedOut() }}>Logout</Nav.Link>
             </Nav>
           </Container>

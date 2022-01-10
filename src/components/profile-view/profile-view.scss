@@ -1,0 +1,23 @@
+$backgroud-color: hsl(186, 100%, 38%);
+
+.user-info {
+    margin: 40px 20px;
+}
+
+.update-form {
+    width: 90%;
+    padding: 30px;
+    border-radius: 14px;
+    border: 4px ridge;
+    background-color: $backgroud-color;
+}
+
+h5 {
+    line-height: 2;
+}
+
+@media screen and (max-width: 760px) {
+    .update-form {
+        margin-top: 90px;
+    }
+}

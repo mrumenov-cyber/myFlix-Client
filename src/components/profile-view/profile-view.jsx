@@ -2,8 +2,12 @@ import React, { useState } from "react";
 import axios from "axios";
 import { Form, Button, Card, Container, Row, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { setUser, updateUser } from '../../actions/actions.js';
+import { connect } from 'react-redux';
+import { propTypes } from "react-bootstrap/esm/Image";
 
 import "./profile-view.scss";
+
 
 export class ProfileView extends React.Component {
     constructor() {
