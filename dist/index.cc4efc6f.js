@@ -34753,7 +34753,7 @@ var _axios = require("axios");
 var _axiosDefault = parcelHelpers.interopDefault(_axios);
 var _reactBootstrap = require("react-bootstrap");
 var _reactRouterDom = require("react-router-dom");
-var _actionsJs = require("../../actions/actions.js");
+var _actions = require("../../actions/actions");
 var _reactRedux = require("react-redux");
 var _image = require("react-bootstrap/esm/Image");
 var _profileViewScss = require("./profile-view.scss");
@@ -35360,8 +35360,8 @@ let mapStateToProps = (state)=>{
     };
 };
 exports.default = _reactRedux.connect(mapStateToProps, {
-    setUser: _actionsJs.setUser,
-    updateUser: _actionsJs.updateUser
+    setUser: _actions.setUser,
+    updateUser: _actions.updateUser
 })(ProfileView);
 
   $parcel$ReactRefreshHelpers$611f.postlude(module);
@@ -35369,7 +35369,7 @@ exports.default = _reactRedux.connect(mapStateToProps, {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"fdCdZ","react":"5oiSa","axios":"kNm32","react-router-dom":"i3sot","react-bootstrap":"jfkPc","./profile-view.scss":"9aljL","@parcel/transformer-js/src/esmodule-helpers.js":"7jmf7","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"9UttP","react-redux":"4yTte","../../actions/actions.js":"hwJEp","react-bootstrap/esm/Image":"2QFwO"}],"9aljL":[function() {},{}],"4yTte":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"fdCdZ","react":"5oiSa","axios":"kNm32","react-router-dom":"i3sot","react-bootstrap":"jfkPc","./profile-view.scss":"9aljL","@parcel/transformer-js/src/esmodule-helpers.js":"7jmf7","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"9UttP","react-redux":"4yTte","react-bootstrap/esm/Image":"2QFwO","../../actions/actions":"hwJEp"}],"9aljL":[function() {},{}],"4yTte":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "batch", ()=>_reactBatchedUpdates.unstable_batchedUpdates
