@@ -22932,7 +22932,9 @@ function LoginView(props) {
             }, this),
             /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Button, {
                 className: "new-account-button",
-                onClick: _registrationView.RegistrationView,
+                onClick: ()=>{
+                    window.location.href = "/register";
+                },
                 children: "Create New Account"
             }, void 0, false, {
                 fileName: "Desktop/myFlix-Client/src/components/login-view/login-view.jsx",
@@ -29863,7 +29865,7 @@ $RefreshReg$(_c, "RegisView");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"fdCdZ","react":"5oiSa","prop-types":"hgyI2","axios":"kNm32","react-bootstrap":"jfkPc","../login-view/login-view":"6MfWQ","@parcel/transformer-js/src/esmodule-helpers.js":"7jmf7","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"9UttP"}],"kNm32":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"fdCdZ","react":"5oiSa","prop-types":"hgyI2","axios":"kNm32","@parcel/transformer-js/src/esmodule-helpers.js":"7jmf7","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"9UttP","react-bootstrap":"jfkPc","../login-view/login-view":"6MfWQ"}],"kNm32":[function(require,module,exports) {
 module.exports = require('./lib/axios');
 
 },{"./lib/axios":"fO8ak"}],"fO8ak":[function(require,module,exports) {
@@ -31708,6 +31710,14 @@ in state to that *particular user*/ onLoggedIn(authData) {
                                         fileName: "Desktop/myFlix-Client/src/components/main-view/main-view.jsx",
                                         lineNumber: 129,
                                         columnNumber: 15
+                                    }, this),
+                                    /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Nav.Link, {
+                                        href: "/register",
+                                        children: "Register"
+                                    }, void 0, false, {
+                                        fileName: "Desktop/myFlix-Client/src/components/main-view/main-view.jsx",
+                                        lineNumber: 130,
+                                        columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
@@ -31741,10 +31751,11 @@ in state to that *particular user*/ onLoggedIn(authData) {
                                 )
                         }, void 0, false, {
                             fileName: "Desktop/myFlix-Client/src/components/main-view/main-view.jsx",
-                            lineNumber: 136,
+                            lineNumber: 137,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactRouterDom.Route, {
+                            exact: true,
                             path: "/register",
                             render: ()=>{
                                 if (user1) return(/*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactRouterDom.Redirect, {
@@ -31757,7 +31768,7 @@ in state to that *particular user*/ onLoggedIn(authData) {
                             }
                         }, void 0, false, {
                             fileName: "Desktop/myFlix-Client/src/components/main-view/main-view.jsx",
-                            lineNumber: 144,
+                            lineNumber: 145,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactRouterDom.Route, {
@@ -31784,7 +31795,7 @@ in state to that *particular user*/ onLoggedIn(authData) {
                             }
                         }, void 0, false, {
                             fileName: "Desktop/myFlix-Client/src/components/main-view/main-view.jsx",
-                            lineNumber: 151,
+                            lineNumber: 153,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactRouterDom.Route, {
@@ -31863,7 +31874,7 @@ in state to that *particular user*/ onLoggedIn(authData) {
                     ]
                 }, void 0, true, {
                     fileName: "Desktop/myFlix-Client/src/components/main-view/main-view.jsx",
-                    lineNumber: 134,
+                    lineNumber: 135,
                     columnNumber: 9
                 }, this)
             ]
@@ -31964,8 +31975,7 @@ MovieCard.propTypes = {
         Title: _propTypesDefault.default.string.isRequired,
         Description: _propTypesDefault.default.string.isRequired,
         ImagePath: _propTypesDefault.default.string.isRequired
-    }).isRequired,
-    onMovieClick: _propTypesDefault.default.func.isRequired
+    }).isRequired
 };
 
   $parcel$ReactRefreshHelpers$bd6c.postlude(module);
@@ -34765,7 +34775,7 @@ class ProfileView extends _reactDefault.default.Component {
             Password: null,
             Email: null,
             Birthday: null,
-            FavoriteMovies: []
+            FavouriteMovies: []
         };
     }
     componentDidMount() {
@@ -34792,7 +34802,7 @@ class ProfileView extends _reactDefault.default.Component {
                 Password: response.data.Password,
                 Email: response.data.Email,
                 Birthday: response.data.Birthday,
-                FavoriteMovies: response.data.FavoriteMovies
+                FavouriteMovies: response.data.FavouriteMovies
             });
         }).catch(function(error) {
             console.log(error);
@@ -34830,7 +34840,7 @@ class ProfileView extends _reactDefault.default.Component {
         });
     };
     //Remove a fav movie
-    onRemoveFavorite() {
+    onRemoveFavourite() {
         const username = localStorage.getItem('user');
         const token = localStorage.getItem('token');
         _axiosDefault.default.delete(`https://stormy-inlet-21959.herokuapp.com/users/${username}/movies/${movie._id}`, {
@@ -34876,7 +34886,7 @@ class ProfileView extends _reactDefault.default.Component {
     }
     render() {
         const { movies , onBackClick , user  } = this.props;
-        const { FavoriteMovies , Username , Email , Birthday  } = this.state;
+        const { FavouriteMovies , Username , Email , Birthday  } = this.state;
         return(/*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Container, {
             className: "profile-view",
             align: "center",
@@ -35204,7 +35214,7 @@ class ProfileView extends _reactDefault.default.Component {
                                 children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV("h4", {
                                     children: [
                                         Username,
-                                        " Favorite Movies"
+                                        " Favourite Movies"
                                     ]
                                 }, void 0, true, {
                                     fileName: "Desktop/myFlix-Client/src/components/profile-view/profile-view.jsx",
@@ -35225,20 +35235,20 @@ class ProfileView extends _reactDefault.default.Component {
                             children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Col, {
                                 children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Card.Body, {
                                     children: [
-                                        FavoriteMovies.length === 0 && /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
+                                        FavouriteMovies.length === 0 && /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
                                             className: "text-center",
-                                            children: "No Favorite Movie"
+                                            children: "No Favourite Movie"
                                         }, void 0, false, {
                                             fileName: "Desktop/myFlix-Client/src/components/profile-view/profile-view.jsx",
                                             lineNumber: 258,
                                             columnNumber: 37
                                         }, this),
                                         /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Row, {
-                                            className: "favorite-container",
-                                            children: FavoriteMovies.length > 0 && movies.map((movie)=>{
-                                                if (movie._id === FavoriteMovies.find((fav)=>fav === movie._id
+                                            className: "favourite-container",
+                                            children: FavouriteMovies.length > 0 && movies.map((movie)=>{
+                                                if (movie._id === FavouriteMovies.find((fav)=>fav === movie._id
                                                 )) return(/*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Card, {
-                                                    className: "favorite-movie card-content",
+                                                    className: "favourite-movie card-content",
                                                     children: [
                                                         /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Card.Img, {
                                                             className: "fav-poster",
@@ -35266,7 +35276,7 @@ class ProfileView extends _reactDefault.default.Component {
                                                                     size: "sm",
                                                                     variant: "danger",
                                                                     value: movie._id,
-                                                                    onClick: (e)=>this.onRemoveFavorite(e, movie)
+                                                                    onClick: (e)=>this.onRemoveFavourite(e, movie)
                                                                     ,
                                                                     children: " Remove "
                                                                 }, void 0, false, {
@@ -35324,7 +35334,7 @@ class ProfileView extends _reactDefault.default.Component {
                     className: "backButton",
                     children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Button, {
                         size: "md",
-                        variant: "outline-primary",
+                        className: "btn btn-danger",
                         onClick: ()=>{
                             onBackClick(null);
                         },

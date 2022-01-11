@@ -127,6 +127,7 @@ onLoggedOut() {
             <Nav className="me-auto">
               <Nav.Link href="/profile">My Profile</Nav.Link>
               <Nav.Link href="#logout" onClick={() => { this.onLoggedOut() }}>Logout</Nav.Link>
+              <Nav.Link href="/register">Register</Nav.Link>
             </Nav>
           </Container>
         </Navbar>
@@ -141,12 +142,13 @@ onLoggedOut() {
             ))
           } />
           {/* register page */}
-          <Route path='/register' render={() => {
-                        if (user) return <Redirect to="/" />
-                        return <Col>
-                            <RegistrationView />
-                        </Col>
-                    }} />
+          <Route exact path="/register" render={() => {
+              if (user) return <Redirect to="/" />
+                return <Col>
+                  <RegistrationView
+                  />
+                </Col>
+              }} />
           {/* profile page */}
           <Route path='/profile' render={({ history }) => {
                           if (!user) return <Col>
@@ -154,9 +156,7 @@ onLoggedOut() {
                           </Col>
                           if (movies.length === 0) return <div className="main-view" />;
                           return <Col md={12}>
-                              <ProfileView setUser={user => this.setUser(user)}
-                                  onLoggedOut={() => this.onLoggedOut()} onBackClick={() => history.goBack()}
-                              />
+                              <ProfileView setUser={user => this.setUser(user)} onLoggedOut={() => this.onLoggedOut()} onBackClick={() => history.goBack()} />
                           </Col>
                       }} /> 
           {/* movie page */}           

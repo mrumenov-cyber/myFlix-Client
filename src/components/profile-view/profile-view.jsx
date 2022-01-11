@@ -18,7 +18,7 @@ export class ProfileView extends React.Component {
             Password: null,
             Email: null,
             Birthday: null,
-            FavoriteMovies: [],
+            FavouriteMovies: [],
         };
     }
 
@@ -48,7 +48,7 @@ export class ProfileView extends React.Component {
                     Password: response.data.Password,
                     Email: response.data.Email,
                     Birthday: response.data.Birthday,
-                    FavoriteMovies: response.data.FavoriteMovies,
+                    FavouriteMovies: response.data.FavouriteMovies,
                 });
             })
             .catch(function (error) {
@@ -95,7 +95,7 @@ export class ProfileView extends React.Component {
 
     //Remove a fav movie
 
-    onRemoveFavorite() {
+    onRemoveFavourite() {
         const username = localStorage.getItem('user');
         const token = localStorage.getItem('token');
 
@@ -150,7 +150,7 @@ export class ProfileView extends React.Component {
 
     render() {
         const { movies, onBackClick, user } = this.props;
-        const { FavoriteMovies, Username, Email, Birthday } = this.state;
+        const { FavouriteMovies, Username, Email, Birthday } = this.state;
 
         return (
             <Container className="profile-view" align="center">
@@ -248,24 +248,24 @@ export class ProfileView extends React.Component {
                 <Card>
                     <Row style={{ marginTop: "20px" }}>
                         <Col>
-                            <h4>{Username} Favorite Movies</h4>
+                            <h4>{Username} Favourite Movies</h4>
                         </Col>
                     </Row>
                     <Row>
                         <Col>
                             <Card.Body>
-                                {FavoriteMovies.length === 0 && (
-                                    <div className="text-center">No Favorite Movie</div>
+                                {FavouriteMovies.length === 0 && (
+                                    <div className="text-center">No Favourite Movie</div>
                                 )}
-                                <Row className="favorite-container">
-                                    {FavoriteMovies.length > 0 &&
+                                <Row className="favourite-container">
+                                    {FavouriteMovies.length > 0 &&
                                         movies.map((movie) => {
                                             if (
                                                 movie._id ===
-                                                FavoriteMovies.find((fav) => fav === movie._id)
+                                                FavouriteMovies.find((fav) => fav === movie._id)
                                             ) {
                                                 return (
-                                                    <Card className="favorite-movie card-content" key={movie._id} >
+                                                    <Card className="favourite-movie card-content" key={movie._id} >
                                                         <Card.Img
                                                             className="fav-poster"
                                                             variant="top"
@@ -275,7 +275,7 @@ export class ProfileView extends React.Component {
                                                             <Card.Title className="movie_title">
                                                                 {movie.Title}
                                                             </Card.Title>
-                                                            <Button size="sm" variant="danger" value={movie._id} onClick={(e) => this.onRemoveFavorite(e, movie)} > Remove </Button>
+                                                            <Button size="sm" variant="danger" value={movie._id} onClick={(e) => this.onRemoveFavourite(e, movie)} > Remove </Button>
                                                         </Card.Body>
                                                     </Card>
                                                 );
@@ -288,7 +288,7 @@ export class ProfileView extends React.Component {
                 </Card>
                 <br />
                 <div className="backButton">
-                    <Button size="md" variant="outline-primary" onClick={() => { onBackClick(null); }}>Back</Button>
+                    <Button size="md" className="btn btn-danger" onClick={() => { onBackClick(null); }}>Back</Button>
                 </div>
                 <br />
             </Container>

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import {Form, Button, Card, CardGroup, Container, Row, Col} from 'react-bootstrap';
+import {Form, Button, Card, CardGroup, Container, Row, Col, Link} from 'react-bootstrap';
 import './login-view.scss';
 import PropTypes from 'prop-types';
 import { RegistrationView } from "../registration-view/registration-view";
@@ -87,7 +87,7 @@ export function LoginView(props) {
       <Button className='submit-button' variant="primary" type="submit" onClick={handleSubmit}>
         Submit
       </Button>
-      <Button className="new-account-button" onClick={RegistrationView}>
+      <Button className="new-account-button" onClick={() => {window.location.href="/register"}}>
         Create New Account
       </Button>
     </Form>
