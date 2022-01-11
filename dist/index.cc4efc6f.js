@@ -36787,22 +36787,33 @@ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "SET_MOVIES", ()=>SET_MOVIES
 );
+parcelHelpers.export(exports, "SET_FILTER", ()=>SET_FILTER
+);
 parcelHelpers.export(exports, "SET_USER", ()=>SET_USER
 );
 parcelHelpers.export(exports, "UPDATE_USER", ()=>UPDATE_USER
 );
 parcelHelpers.export(exports, "setMovies", ()=>setMovies
 );
+parcelHelpers.export(exports, "setFilter", ()=>setFilter
+);
 parcelHelpers.export(exports, "setUser", ()=>setUser
 );
 parcelHelpers.export(exports, "updateUser", ()=>updateUser
 );
 const SET_MOVIES = 'SET_MOVIES';
+const SET_FILTER = 'SET_FILTER';
 const SET_USER = 'SET_USER';
 const UPDATE_USER = "UPDATE_USER";
 function setMovies(value) {
     return {
         type: SET_MOVIES,
+        value
+    };
+}
+function setFilter(value) {
+    return {
+        type: SET_FILTER,
         value
     };
 }
