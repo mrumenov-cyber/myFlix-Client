@@ -15,7 +15,6 @@ export class ProfileView extends React.Component {
             Username: null,
             Password: null,
             Email: null,
-            Birthday: null,
             FavouriteMovies: [],
         };
     }
@@ -45,7 +44,6 @@ export class ProfileView extends React.Component {
                     Username: response.data.Username,
                     Password: response.data.Password,
                     Email: response.data.Email,
-                    Birthday: response.data.Birthday,
                     FavouriteMovies: response.data.FavouriteMovies,
                 });
             })
@@ -66,7 +64,6 @@ export class ProfileView extends React.Component {
                     Username: this.state.Username,
                     Password: this.state.Password,
                     Email: this.state.Email,
-                    Birthday: this.state.Birthday,
                 },
                 {
                     headers: { Authorization: `Bearer ${token}` },
@@ -77,7 +74,6 @@ export class ProfileView extends React.Component {
                     Username: response.data.Username,
                     Password: response.data.Password,
                     Email: response.data.Email,
-                    Birthday: response.data.Birthday,
                 });
 
                 localStorage.setItem("user", this.state.Username);
@@ -133,16 +129,9 @@ export class ProfileView extends React.Component {
         this.Email = value;
     }
 
-    setBirthday(value) {
-        this.setState({
-            Birthday: value,
-        });
-        this.Birthday = value;
-    }
-
     render() {
         const { movies, onBackClick } = this.props;
-        const { FavouriteMovies, Username, Email, Birthday } = this.state;
+        const { FavouriteMovies, Username, Email} = this.state;
 
         return (
             <Container className="profile-view" align="center">
@@ -159,9 +148,6 @@ export class ProfileView extends React.Component {
                                     <span className="label">Email: </span>
                                     <span className="value">{Email}</span>
                                     <br />
-                                    <br />
-                                    <span className="label">Birthday: </span>
-                                    <span className="value">{Birthday}</span>
                                 </div>
                             </Card.Text>
                         </Card>
@@ -181,7 +167,6 @@ export class ProfileView extends React.Component {
                                             this.Username,
                                             this.Password,
                                             this.Email,
-                                            this.Birthday
                                         )
                                     }
                                 >
@@ -218,14 +203,6 @@ export class ProfileView extends React.Component {
                                         />
                                     </Form.Group>
 
-                                    <Form.Group>
-                                        <Form.Label>Birthday</Form.Label>
-                                        <Form.Control
-                                            type="date"
-                                            name="Birthday"
-                                            onChange={(e) => this.setBirthday(e.target.value)}
-                                        />
-                                    </Form.Group>
                                     <br />
                                     <div className="bt">
                                         <Button variant="warning" type="submit" onClick={this.editUser}>Update User</Button>
@@ -293,6 +270,5 @@ ProfileView.propTypes = {
         Username: PropTypes.string.isRequired,
         Password: PropTypes.string.isRequired,
         Email: PropTypes.string.isRequired,
-        Birthday: PropTypes.string,
     }),
 };
