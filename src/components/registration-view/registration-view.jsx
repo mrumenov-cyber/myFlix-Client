@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import axios from 'axios';
 import {Form, Button, Card, CardGroup, Container, Row, Col} from 'react-bootstrap';
 import { LoginView } from '../login-view/login-view';
+import {MainView} from '../main-view/main-view'
 
 export function RegisView(props) {
     const [ username, setUsername ] = useState('');

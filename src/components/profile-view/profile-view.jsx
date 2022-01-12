@@ -1,13 +1,11 @@
 import React, { useState } from "react";
 import axios from "axios";
+import PropTypes from "prop-types";
+
 import { Form, Button, Card, Container, Row, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { setUser, updateUser } from '../../actions/actions';
-import { connect } from 'react-redux';
-import { propTypes } from "react-bootstrap/esm/Image";
 
 import "./profile-view.scss";
-
 
 export class ProfileView extends React.Component {
     constructor() {
@@ -37,9 +35,9 @@ export class ProfileView extends React.Component {
     }
 
     getUser = (token) => {
-        const username = localStorage.getItem("user");
+        const Username = localStorage.getItem("user");
         axios
-            .get(`https://stormy-inlet-21959.herokuapp.com/users/${username}`, {
+            .get(`https://stormy-inlet-21959.herokuapp.com/users/${Username}`, {
                 headers: { Authorization: `Bearer ${token}` },
             })
             .then((response) => {
@@ -55,24 +53,25 @@ export class ProfileView extends React.Component {
                 console.log(error);
             });
     };
-
     // Allow user to edit or update profile
-
     editUser = (e) => {
         e.preventDefault();
-        const username = localStorage.getItem("user");
+        const Username = localStorage.getItem("user");
         const token = localStorage.getItem("token");
 
-        axios.put(`https://stormy-inlet-21959.herokuapp.com/users/${username}`,
-            {
-                Username: this.state.Username,
-                Password: this.state.Password,
-                Email: this.state.Email,
-                Birthday: this.state.Birthday,
-            },
-            {
-                headers: { Authorization: `Bearer ${token}` },
-            })
+        axios
+            .put(
+                `https://stormy-inlet-21959.herokuapp.com/users/${Username}`,
+                {
+                    Username: this.state.Username,
+                    Password: this.state.Password,
+                    Email: this.state.Email,
+                    Birthday: this.state.Birthday,
+                },
+                {
+                    headers: { Authorization: `Bearer ${token}` },
+                }
+            )
             .then((response) => {
                 this.setState({
                     Username: response.data.Username,
@@ -86,38 +85,19 @@ export class ProfileView extends React.Component {
                 console.log(data);
                 console.log(this.state.Username);
                 alert("Profile is updated!");
-                window.open(`/users/${username}`, "_self");
+                window.open(`/users/${Username}`, "_self");
             })
             .catch(function (error) {
                 console.log(error);
             });
     };
 
-    //Remove a fav movie
-
-    onRemoveFavourite() {
-        const username = localStorage.getItem('user');
-        const token = localStorage.getItem('token');
-
-        axios.delete(`https://stormy-inlet-21959.herokuapp.com/users/${username}/movies/${movie._id}`, {
-            headers: { Authorization: `Bearer ${token}` }
-        })
-            .then((response) => {
-                console.log(response);
-                this.componentDidMount();
-            })
-            .catch(function (error) {
-                console.log(error);
-            });
-    }
-
     // Deregister
-
     onDeleteUser() {
-        const username = localStorage.getItem("user");
+        const Username = localStorage.getItem("user");
         const token = localStorage.getItem("token");
 
-        axios.delete(`https://stormy-inlet-21959.herokuapp.com/user/${username}`, {
+        axios.delete(`https://stormy-inlet-21959.herokuapp.com/user/${Username}`, {
             headers: { Authorization: `Bearer ${token}` },
         })
             .then((response) => {
@@ -133,23 +113,35 @@ export class ProfileView extends React.Component {
     }
 
     setUsername(value) {
-        this.state.Username = value;
+        this.setState({
+            Username: value,
+        });
+        this.Username = value;
     }
 
     setPassword(value) {
-        this.state.Password = value;
+        this.setState({
+            Password: value,
+        });
+        this.Password = value;
     }
 
     setEmail(value) {
-        this.state.Email = value;
+        this.setState({
+            Email: value,
+        });
+        this.Email = value;
     }
 
     setBirthday(value) {
-        this.state.Birthday = value;
+        this.setState({
+            Birthday: value,
+        });
+        this.Birthday = value;
     }
 
     render() {
-        const { movies, onBackClick, user } = this.props;
+        const { movies, onBackClick } = this.props;
         const { FavouriteMovies, Username, Email, Birthday } = this.state;
 
         return (
@@ -275,7 +267,7 @@ export class ProfileView extends React.Component {
                                                             <Card.Title className="movie_title">
                                                                 {movie.Title}
                                                             </Card.Title>
-                                                            <Button size="sm" variant="danger" value={movie._id} onClick={(e) => this.onRemoveFavourite(e, movie)} > Remove </Button>
+                                                            <Button size="sm" variant="danger" value={movie._id} onClick={(e) => this.onRemoveFavuorite(e, movie)} > Remove </Button>
                                                         </Card.Body>
                                                     </Card>
                                                 );
@@ -288,7 +280,7 @@ export class ProfileView extends React.Component {
                 </Card>
                 <br />
                 <div className="backButton">
-                    <Button size="md" className="btn btn-danger" onClick={() => { onBackClick(null); }}>Back</Button>
+                    <Button size="md" variant="outline-primary" onClick={() => { onBackClick(null); }}>Back</Button>
                 </div>
                 <br />
             </Container>
@@ -296,11 +288,11 @@ export class ProfileView extends React.Component {
     }
 }
 
-let mapStateToProps = state => {
-    return {
-        user: state.user,
-        movies: state.movies
-    }
-}
-
-export default connect(mapStateToProps, { setUser, updateUser })(ProfileView);
+ProfileView.propTypes = {
+    profile: PropTypes.shape({
+        Username: PropTypes.string.isRequired,
+        Password: PropTypes.string.isRequired,
+        Email: PropTypes.string.isRequired,
+        Birthday: PropTypes.string,
+    }),
+};

@@ -127,7 +127,6 @@ onLoggedOut() {
             <Nav className="me-auto">
               <Nav.Link href="/profile">My Profile</Nav.Link>
               <Nav.Link href="#logout" onClick={() => { this.onLoggedOut() }}>Logout</Nav.Link>
-              <Nav.Link href="/register">Register</Nav.Link>
             </Nav>
           </Container>
         </Navbar>
@@ -144,11 +143,10 @@ onLoggedOut() {
           {/* register page */}
           <Route exact path="/register" render={() => {
               if (user) return <Redirect to="/" />
-                return <Col>
-                  <RegistrationView
-                  />
-                </Col>
-              }} />
+              return <Col>
+                <RegistrationView />
+              </Col>
+            }} />
           {/* profile page */}
           <Route path='/profile' render={({ history }) => {
                           if (!user) return <Col>

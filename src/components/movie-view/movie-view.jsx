@@ -6,7 +6,30 @@ import { Link } from "react-router-dom";
 
 import "./movie-view.scss";
 
+
 export class MovieView extends React.Component {
+
+  addFavouriteMovie() {
+    const token = localStorage.getItem("token");
+    const username = localStorage.getItem("user");
+
+    axios
+      .post(
+        `https://stormy-inlet-21959.herokuapp.com/users/${username}/movies/${this.props.movie._id}`,
+        {},
+        {
+          headers: { Authorization: `Bearer ${token}` },
+          method: "POST",
+        }
+      )
+      .then((response) => {
+        alert(`Added to Favourites List`);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }
+  
 
   
   render() {
@@ -17,6 +40,9 @@ export class MovieView extends React.Component {
         <div className="movie-poster">
           <img src={movie.ImagePath} crossOrigin='anonymous' style={{width:'15.85rem'}}/>
         </div>
+        <Button className="favourite-button btn btn-primary" value={movie._id} onClick={(e) => this.addFavouriteMovie(e, movie)} >
+                        Add to Favourites
+                      </Button>
         <div className="movie-title">
           <h4 className="label-value">Title: {movie.Title}</h4>
         </div>
@@ -42,6 +68,8 @@ export class MovieView extends React.Component {
         <Link to={`/genres/${movie.Genre.Name}`}>
           <Button className='genre-btn btn btn-primary'>Genre</Button>
         </Link>
+
+        
        </div>
     );
   }
