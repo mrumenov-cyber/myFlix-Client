@@ -31,6 +31,9 @@ body,
 body {
   font-family: "Arial", sans-serif !important;
 }
+.form-label {
+  font-weight: 400 !important;
+}
 .main-view {
   height: 100% !important;
   width: 100%;

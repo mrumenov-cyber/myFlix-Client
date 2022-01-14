@@ -108,17 +108,6 @@ onLoggedOut() {
   render() {
     const { movies, user } = this.state;
 
-    /* If there is no user, the LoginView is rendered. If there is a user logged in, the user details are *passed as a prop to the LoginView*/
-    if (!user) return <Row>
-      <Col>
-        <LoginView onLoggedIn={user => this.onLoggedIn(user)} />
-      </Col>
-    </Row>
-    // Before the movies have been loaded
-   // if (selectedMovie) return <MovieView movie={selectedMovie} />;
-
-    if (movies.length === 0) return <div className="main-view">The list is empty!</div>;
-
     return (
       <Router>
         <Navbar expand="lg" bg="dark" variant="dark" className="main-view-Navbar">
@@ -133,15 +122,22 @@ onLoggedOut() {
 
         <Row className="main-view justify-content-md-center">
           {/* login page / main movies page */}
-          <Route exact path="/" render={() =>
-            movies.map(m => (
+          <Route exact path="/" render={() => {
+            if (!user) return <Col>
+              <LoginView onLoggedIn={user => this.onLoggedIn(user)} />
+            </Col>
+
+            if (movies.length === 0) return <div className="main-view">The list is empty!</div>;
+
+            return movies.map(m => (
               <Col md={3} key={m._id}>
                 <MovieCard movie={m} />
               </Col>
             ))
-          } />
+          }} />
           {/* register page */}
           <Route exact path="/register" render={() => {
+            console.log("registrations")
               if (user) return <Redirect to="/" />
               return <Col>
                 <RegistrationView />
