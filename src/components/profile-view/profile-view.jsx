@@ -15,6 +15,7 @@ export class ProfileView extends React.Component {
             Username: null,
             Password: null,
             Email: null,
+            Birthday: null,
             FavouriteMovies: [],
         };
     }
@@ -44,6 +45,7 @@ export class ProfileView extends React.Component {
                     Username: response.data.Username,
                     Password: response.data.Password,
                     Email: response.data.Email,
+                    Birthday: response.data.Birthday,
                     FavouriteMovies: response.data.FavouriteMovies,
                 });
             })
@@ -64,6 +66,7 @@ export class ProfileView extends React.Component {
                     Username: this.state.Username,
                     Password: this.state.Password,
                     Email: this.state.Email,
+                    Birthday: this.state.Birthday,
                 },
                 {
                     headers: { Authorization: `Bearer ${token}` },
@@ -74,6 +77,7 @@ export class ProfileView extends React.Component {
                     Username: response.data.Username,
                     Password: response.data.Password,
                     Email: response.data.Email,
+                    Birthday: response.data.Birthday,
                 });
 
                 localStorage.setItem("user", this.state.Username);
@@ -93,7 +97,7 @@ export class ProfileView extends React.Component {
         const Username = localStorage.getItem("user");
         const token = localStorage.getItem("token");
 
-        axios.delete(`https://stormy-inlet-21959.herokuapp.com/user/${Username}`, {
+        axios.delete(`https://stormy-inlet-21959.herokuapp.com/users/${Username}`, {
             headers: { Authorization: `Bearer ${token}` },
         })
             .then((response) => {
@@ -129,9 +133,16 @@ export class ProfileView extends React.Component {
         this.Email = value;
     }
 
+    setBirthday(value) {
+        this.setState({
+            Birthday: value,
+        });
+        this.Birthday = value;
+    }
+
     render() {
         const { movies, onBackClick } = this.props;
-        const { FavouriteMovies, Username, Email} = this.state;
+        const { FavouriteMovies, Username, Email, Birthday } = this.state;
 
         return (
             <Container className="profile-view" align="center">
@@ -148,6 +159,9 @@ export class ProfileView extends React.Component {
                                     <span className="label">Email: </span>
                                     <span className="value">{Email}</span>
                                     <br />
+                                    <br />
+                                    <span className="label">Birthday: </span>
+                                    <span className="value">{Birthday}</span>
                                 </div>
                             </Card.Text>
                         </Card>
@@ -167,6 +181,7 @@ export class ProfileView extends React.Component {
                                             this.Username,
                                             this.Password,
                                             this.Email,
+                                            this.Birthday
                                         )
                                     }
                                 >
@@ -203,6 +218,14 @@ export class ProfileView extends React.Component {
                                         />
                                     </Form.Group>
 
+                                    <Form.Group>
+                                        <Form.Label>Birthday</Form.Label>
+                                        <Form.Control
+                                            type="date"
+                                            name="Birthday"
+                                            onChange={(e) => this.setBirthday(e.target.value)}
+                                        />
+                                    </Form.Group>
                                     <br />
                                     <div className="bt">
                                         <Button variant="warning" type="submit" onClick={this.editUser}>Update User</Button>
@@ -214,47 +237,6 @@ export class ProfileView extends React.Component {
                     </Col>
                 </Row>
                 <br />
-                <Card>
-                    <Row style={{ marginTop: "20px" }}>
-                        <Col>
-                            <h4>{Username} Favourite Movies</h4>
-                        </Col>
-                    </Row>
-                    <Row>
-                        <Col>
-                            <Card.Body>
-                                {FavouriteMovies.length === 0 && (
-                                    <div className="text-center">No Favourite Movie</div>
-                                )}
-                                <Row className="favourite-container">
-                                    {FavouriteMovies.length > 0 &&
-                                        movies.map((movie) => {
-                                            if (
-                                                movie._id ===
-                                                FavouriteMovies.find((fav) => fav === movie._id)
-                                            ) {
-                                                return (
-                                                    <Card className="favourite-movie card-content" key={movie._id} >
-                                                        <Card.Img
-                                                            className="fav-poster"
-                                                            variant="top"
-                                                            src={movie.ImagePath}
-                                                        />
-                                                        <Card.Body style={{ backgroundColor: "black" }}>
-                                                            <Card.Title className="movie_title">
-                                                                {movie.Title}
-                                                            </Card.Title>
-                                                            <Button size="sm" variant="danger" value={movie._id} onClick={(e) => this.onRemoveFavuorite(e, movie)} > Remove </Button>
-                                                        </Card.Body>
-                                                    </Card>
-                                                );
-                                            }
-                                        })}
-                                </Row>
-                            </Card.Body>
-                        </Col>
-                    </Row>
-                </Card>
                 <br />
                 <div className="backButton">
                     <Button size="md" variant="outline-primary" onClick={() => { onBackClick(null); }}>Back</Button>
@@ -270,5 +252,6 @@ ProfileView.propTypes = {
         Username: PropTypes.string.isRequired,
         Password: PropTypes.string.isRequired,
         Email: PropTypes.string.isRequired,
+        Birthday: PropTypes.string,
     }),
 };
