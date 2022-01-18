@@ -6,9 +6,19 @@
 
   .genre-back-button, .genre-name{
     margin-top:40px;
+    align-self: center;
+  }
+
+  .genre-back-button{
+    width:80%;
+    margin-bottom: 30px;
   }
 
   .genre-description{
     font-size: larger;
     margin-top: 20px;
+  }
+
+  .genre-container{
+    margin-right: 30px;
   }

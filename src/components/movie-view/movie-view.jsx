@@ -36,41 +36,45 @@ export class MovieView extends React.Component {
     const { movie, onBackClick } = this.props;
 
     return (
-      <div className="movie-view">
-        <div className="movie-poster">
-          <img src={movie.ImagePath} crossOrigin='anonymous' style={{width:'15.85rem'}}/>
-        </div>
-        <Button className="favourite-button btn btn-primary" value={movie._id} onClick={(e) => this.addFavouriteMovie(e, movie)} >
+      <Container className="movie-view">
+          <Card>
+            <div className="movie-poster">
+              <img src={movie.ImagePath} crossOrigin='anonymous' style={{width:'15.85rem'}}/>
+            </div>
+              <Button className="favourite-button btn btn-primary" value={movie._id} onClick={(e) => this.addFavouriteMovie(e, movie)} >
                         Add to Favourites
                       </Button>
-        <div className="movie-title">
-          <h4 className="label-value">Title: {movie.Title}</h4>
-        </div>
-        <div className="movie-genre">
-          <span className="label">Genre: </span>
-          <span className="value">{movie.Genre.Name}</span>
-        </div>
-        <div className="movie-description">
-          <span className="label">Description: </span>
-          <span className="value">{movie.Description}</span>
-        </div>
-        <div className="movie-director">
-          <span className="label">Director: </span>
-          <span className="value">{movie.Director.Name}</span>
-        </div>
-        
-        <Button className='back-button btn btn-danger' onClick={() => {onBackClick (null);}}>Back</Button>
+                    <div className='text-container'>
+                        <div className="movie-title">
+                          <h4 className="label-value">Title: {movie.Title}</h4>
+                        </div>
+                        <div className="movie-description">
+                          <span className="label">Description: </span>
+                          <span className="value">{movie.Description}</span>
+                        </div>
+                        <div className="movie-genre">
+                          <span className="label">Genre: </span>
+                          <span className="value">{movie.Genre.Name}</span>
+                        </div>
+                        <div className="movie-director">
+                          <span className="label">Director: </span>
+                          <span className="value">{movie.Director.Name}</span>
+                        </div>
+                    </div>
+                    <br />
 
-        <Link to={`/directors/${movie.Director.Name}`}>
-          <Button className='director-btn btn btn-success'>Director</Button>
-        </Link>
 
-        <Link to={`/genres/${movie.Genre.Name}`}>
-          <Button className='genre-btn btn btn-primary'>Genre</Button>
-        </Link>
+                    <Link className='genre' to={`/genres/${movie.Genre.Name}`}>
+                      <Button className='genre-btn btn btn-primary'>More about Genre</Button>
+                    </Link>
 
-        
-       </div>
+                    <Link className='director' to={`/directors/${movie.Director.Name}`}>
+                      <Button className='director-btn btn btn-success'>More about Director</Button>
+                    </Link>
+
+                    <Button className='back-button btn btn-danger' onClick={() => {onBackClick (null);}}>Back</Button>
+            </Card>
+       </Container>
     );
   }
 }

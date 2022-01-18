@@ -21,3 +21,8 @@ h5 {
         margin-top: 90px;
     }
 }
+
+.back-button:hover, .back-button:focus, .back-button:active{
+    background: hsl(186, 100%, 38%) !important;
+    border-color: #000 !important;
+}
