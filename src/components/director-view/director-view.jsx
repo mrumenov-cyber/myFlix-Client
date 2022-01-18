@@ -24,6 +24,10 @@ export class DirectorView extends React.Component {
                       <Col className="value" md={12}>{Director.Bio}</Col>
                     </Row>
                   </Col>
+                  <div>
+                        <span className="label">Born: </span>
+                        <span className="value">{Director.Birth}</span>
+                  </div>
           </div>
               <Button className="director-back-button" variant='danger' onClick={() => { onBackClick(null); }}>Back</Button>
               <br />          
