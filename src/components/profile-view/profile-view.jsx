@@ -92,6 +92,25 @@ export class ProfileView extends React.Component {
             });
     };
 
+    onRemoveFavuorite = (Username, movie) => {
+        const Username = localStorage.getItem('user');
+        const token = localStorage.getItem('token');
+    
+        axios.delete(`https://stormy-inlet-21959.herokuapp.com/user/${user.Username}/movies/${movie._id}`, { 
+          headers: { 
+            Authorization: `Bearer ${token}` 
+          } 
+        })
+        .then((response) => {
+          this.componentDidMount();
+          alert("Favourite movie has been removed.");
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+      }
+
+
     // Deregister
     onDeleteUser() {
         const Username = localStorage.getItem("user");
@@ -136,7 +155,7 @@ export class ProfileView extends React.Component {
     setBirthday(value) {
         this.setState({
             Birthday: value,
-        });
+        })
         this.Birthday = value;
     }
 
@@ -194,11 +213,11 @@ export class ProfileView extends React.Component {
                                                             variant="top"
                                                             src={movie.ImagePath}
                                                         />
-                                                        <Card.Body style={{ backgroundColor: "black" }}>
+                                                        <Card.Body style={{ backgroundColor: "black"}}>
                                                             <Card.Title className="movie_title">
                                                                 {movie.Title}
                                                             </Card.Title>
-                                                            <Button size="sm" variant="danger" value={movie._id} onClick={(e) => this.onRemoveFavuorite(e, movie)} > Remove </Button>
+                                                            <Button size="sm" variant="danger" value={movie._id} onClick={() => this.onRemoveFavuorite(Username, movie)} > Remove </Button>
                                                         </Card.Body>
                                                     </Card>
                                                 );
@@ -211,8 +230,6 @@ export class ProfileView extends React.Component {
                 </Card>
                 <br />
                 <br />
-                <Row>
-                    <Col>
                         <Card className="update-profile">
                             <Card.Body>
                                 <Card.Title>Update Profile</Card.Title>
@@ -270,16 +287,17 @@ export class ProfileView extends React.Component {
                                         />
                                     </Form.Group>
                                     <br />
+                                    <Form.Group>
                                     <div className="bt">
                                         <Button variant="warning" type="submit" onClick={this.editUser}>Update User</Button>
                                         <Button className="delete-button" variant="danger" onClick={() => this.onDeleteUser()} > Delete User </Button>
                                     </div>
+                                    </Form.Group>
                                 </Form>
                             </Card.Body>
                         </Card>
-                    </Col>
-                </Row>
                 <div>
+                    <br />
                     <Button className="back-button btn btn-danger" size="md" onClick={() => { onBackClick(null); }}>Back</Button>
                 </div>
                 <br />

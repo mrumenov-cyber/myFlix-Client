@@ -156,7 +156,7 @@ onLoggedOut() {
                           </Col>
                           if (movies.length === 0) return <div className="main-view" />;
                           return <Col md={12}>
-                              <ProfileView setUser={user => this.setUser(user)} onLoggedOut={() => this.onLoggedOut()} onBackClick={() => history.goBack()} />
+                              <ProfileView movies={movies} setUser={user => this.setUser(user)} onLoggedOut={() => this.onLoggedOut()} onBackClick={() => history.goBack()} />
                           </Col>
                       }} /> 
           {/* movie page */}           

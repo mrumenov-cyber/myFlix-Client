@@ -152,7 +152,7 @@ body {
   background-color: #00aec2;
 }
 
-h5 {
+.movie_title {
   line-height: 2;
 }
 
@@ -164,6 +164,10 @@ h5 {
 .back-button:hover, .back-button:focus, .back-button:active {
   background: #00aec2 !important;
   border-color: #000 !important;
+}
+
+.h5 {
+  color: white;
 }
 .my-flix {
   color: steelblue;
