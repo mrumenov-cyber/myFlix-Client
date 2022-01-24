@@ -120,8 +120,12 @@ onLoggedOut() {
           <Container>
             <Navbar.Brand href="/">My Flix</Navbar.Brand>
             <Nav className="me-auto">
-              <Nav.Link href="/profile">My Profile</Nav.Link>
-              <Nav.Link href="#logout" onClick={() => { this.onLoggedOut() }}>Logout</Nav.Link>
+            { user && 
+              <> 
+                <Nav.Link href="/profile">My Profile</Nav.Link> 
+                <Nav.Link href="#logout" onClick={() => { this.onLoggedOut() }}>Logout</Nav.Link> 
+              </> 
+            }
             </Nav>
           </Container>
         </Navbar>

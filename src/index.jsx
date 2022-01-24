@@ -4,7 +4,7 @@ import Container from 'react-bootstrap/Container';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import moviesApp from './reducers/reducers';
-import { MainView } from './components/main-view/main-view';
+import MainView from './components/main-view/main-view';
 import { devToolsEnhancer } from 'redux-devtools-extension';
 
 // Import statement to indicate that we need to bundle `./index.scss`

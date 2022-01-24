@@ -2,7 +2,7 @@
   "name": "npm",
   "version": "1.0.0",
   "description": "react",
-  "main": "src/index.html",
+  "source": "src/index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "parcel",
@@ -22,7 +22,7 @@
     "react.js"
   ],
   "dependencies": {
-    "@parcel/transformer-sass": "^2.0.0-rc.0",
+    "@parcel/transformer-sass": "^2.2.1",
     "@reduxjs/toolkit": "^1.7.1",
     "axios": "^0.24.0",
     "moment": "^2.29.1",

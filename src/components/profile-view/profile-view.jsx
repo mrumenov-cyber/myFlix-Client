@@ -168,6 +168,49 @@ export class ProfileView extends React.Component {
                     </Col>
                 </Row>
                 <br />
+                <Card>
+                    <Row style={{ marginTop: "20px" }}>
+                        <Col>
+                            <h4>{Username} Favourite Movies</h4>
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col>
+                            <Card.Body>
+                                {FavouriteMovies.length === 0 && (
+                                    <div className="text-center">No Favourite Movie</div>
+                                )}
+                                <Row className="favourite-container">
+                                    {FavouriteMovies.length > 0 &&
+                                        movies.map((movie) => {
+                                            if (
+                                                movie._id ===
+                                                FavouriteMovies.find((fav) => fav === movie._id)
+                                            ) {
+                                                return (
+                                                    <Card className="favourite-movie card-content" key={movie._id} >
+                                                        <Card.Img
+                                                            className="fav-poster"
+                                                            variant="top"
+                                                            src={movie.ImagePath}
+                                                        />
+                                                        <Card.Body style={{ backgroundColor: "black" }}>
+                                                            <Card.Title className="movie_title">
+                                                                {movie.Title}
+                                                            </Card.Title>
+                                                            <Button size="sm" variant="danger" value={movie._id} onClick={(e) => this.onRemoveFavuorite(e, movie)} > Remove </Button>
+                                                        </Card.Body>
+                                                    </Card>
+                                                );
+                                            }
+                                        })}
+                                </Row>
+                            </Card.Body>
+                        </Col>
+                    </Row>
+                </Card>
+                <br />
+                <br />
                 <Row>
                     <Col>
                         <Card className="update-profile">
@@ -236,8 +279,6 @@ export class ProfileView extends React.Component {
                         </Card>
                     </Col>
                 </Row>
-                <br />
-                <br />
                 <div>
                     <Button className="back-button btn btn-danger" size="md" onClick={() => { onBackClick(null); }}>Back</Button>
                 </div>
