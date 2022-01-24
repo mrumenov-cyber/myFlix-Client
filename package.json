@@ -5,7 +5,7 @@
   "source": "src/index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "parcel",
+    "start": "parcel src/index.html",
     "build": "parcel build"
   },
   "repository": {
@@ -22,7 +22,7 @@
     "react.js"
   ],
   "dependencies": {
-    "@parcel/transformer-sass": "^2.2.1",
+    "@parcel/transformer-sass": "^2.0.0-rc.0",
     "@reduxjs/toolkit": "^1.7.1",
     "axios": "^0.24.0",
     "moment": "^2.29.1",
