@@ -93,7 +93,7 @@ export class ProfileView extends React.Component {
     };
 
     onRemoveFavuorite = (Username, movie) => {
-        const Username = localStorage.getItem('user');
+        const username = localStorage.getItem('user');
         const token = localStorage.getItem('token');
     
         axios.delete(`https://stormy-inlet-21959.herokuapp.com/user/${user.Username}/movies/${movie._id}`, { 
@@ -109,6 +109,8 @@ export class ProfileView extends React.Component {
           console.log(error);
         });
       }
+
+    
 
 
     // Deregister
