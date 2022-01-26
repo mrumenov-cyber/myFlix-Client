@@ -13,3 +13,24 @@
     text-overflow: ellipsis;
     margin-left: 20px;
 }
+
+.Card.Body{
+    display: 'flex'; 
+    flex-direction: 'column';
+    justify-content: 'space-between';
+}
+
+.button-bottom{
+    margin-top: '12px'
+}
+
+.open-button{
+    margin-bottom: auto;
+    position: static;
+
+}
+
+.open-btn:hover, .open-btn:focus, .open-btn:active {
+    background: hsl(186, 100%, 38%) !important;
+    border-color: #000 !important;
+  }

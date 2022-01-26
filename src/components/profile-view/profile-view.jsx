@@ -214,9 +214,10 @@ export class ProfileView extends React.Component {
                                                             className="fav-poster"
                                                             variant="top"
                                                             src={movie.ImagePath}
+                                                            style={{width:'15.85rem'}}
                                                         />
                                                         <Card.Body style={{ backgroundColor: "black"}}>
-                                                            <Card.Title className="movie_title">
+                                                            <Card.Title className="movie_title" style={{color: "white"}}>
                                                                 {movie.Title}
                                                             </Card.Title>
                                                             <Button size="sm" variant="danger" value={movie._id} onClick={() => this.onRemoveFavuorite(Username, movie)} > Remove </Button>
