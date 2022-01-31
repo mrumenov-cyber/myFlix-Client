@@ -37009,7 +37009,7 @@ class ProfileView extends _reactDefault.default.Component {
     onRemoveFavuorite = (movie)=>{
         const username = localStorage.getItem('user');
         const token = localStorage.getItem('token');
-        _axiosDefault.default.delete(`https://stormy-inlet-21959.herokuapp.com/users/${user.Username}`, {
+        _axiosDefault.default.delete(`https://stormy-inlet-21959.herokuapp.com/users/${username}`, {
             headers: {
                 Authorization: `Bearer ${token}`
             }
