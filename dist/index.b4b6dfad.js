@@ -37006,10 +37006,10 @@ class ProfileView extends _reactDefault.default.Component {
             console.log(error);
         });
     };
-    onRemoveFavuorite = (Username, movie)=>{
+    onRemoveFavuorite = (movie)=>{
         const username = localStorage.getItem('user');
         const token = localStorage.getItem('token');
-        _axiosDefault.default.delete(`https://stormy-inlet-21959.herokuapp.com/user/${user.Username}/movies/${movie._id}`, {
+        _axiosDefault.default.delete(`https://stormy-inlet-21959.herokuapp.com/users/${user.Username}`, {
             headers: {
                 Authorization: `Bearer ${token}`
             }
@@ -37268,7 +37268,7 @@ class ProfileView extends _reactDefault.default.Component {
                                                                     size: "sm",
                                                                     variant: "danger",
                                                                     value: movie._id,
-                                                                    onClick: ()=>this.onRemoveFavuorite(Username, movie)
+                                                                    onClick: ()=>this.onRemoveFavuorite(movie)
                                                                     ,
                                                                     children: " Remove "
                                                                 }, void 0, false, {

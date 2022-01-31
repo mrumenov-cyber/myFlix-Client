@@ -92,11 +92,11 @@ export class ProfileView extends React.Component {
             });
     };
 
-    onRemoveFavuorite = (Username, movie) => {
+    onRemoveFavuorite = (movie) => {
         const username = localStorage.getItem('user');
         const token = localStorage.getItem('token');
     
-        axios.delete(`https://stormy-inlet-21959.herokuapp.com/user/${user.Username}/movies/${movie._id}`, { 
+        axios.delete(`https://stormy-inlet-21959.herokuapp.com/users/${user.Username}`, { 
           headers: { 
             Authorization: `Bearer ${token}` 
           } 
@@ -220,7 +220,7 @@ export class ProfileView extends React.Component {
                                                             <Card.Title className="movie_title" style={{color: "white"}}>
                                                                 {movie.Title}
                                                             </Card.Title>
-                                                            <Button size="sm" variant="danger" value={movie._id} onClick={() => this.onRemoveFavuorite(Username, movie)} > Remove </Button>
+                                                            <Button size="sm" variant="danger" value={movie._id} onClick={() => this.onRemoveFavuorite(movie)} > Remove </Button>
                                                         </Card.Body>
                                                     </Card>
                                                 );
