@@ -8,6 +8,9 @@ import "./movie-view.scss";
 
 
 export class MovieView extends React.Component {
+  constructor(){
+    super();
+  }
 
   addFavouriteMovie() {
     const token = localStorage.getItem("token");
@@ -79,22 +82,3 @@ export class MovieView extends React.Component {
   }
 }
 
-MovieView.propTypes = {
-  movie: PropTypes.shape({
-    Title: PropTypes.string.isRequired,
-    Description: PropTypes.string.isRequired,
-    Genre: PropTypes.shape({
-      Name: PropTypes.string.isRequired,
-      Description: PropTypes.string.isRequired
-    }),
-    Director: PropTypes.shape({
-      Name: PropTypes.string.isRequired,
-      Bio: PropTypes.string.isRequired,
-      Birth: PropTypes.date,
-      Death: PropTypes.date
-    }),
-    Featured: PropTypes.bool,
-    ImagePath: PropTypes.string.isRequired
-    }).isRequired,
-    onBackClick: PropTypes.func.isRequired
-};

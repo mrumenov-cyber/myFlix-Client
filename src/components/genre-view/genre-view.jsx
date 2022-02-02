@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import './genre-view.scss';
 import { Container, Row, Col, Button, Card } from 'react-bootstrap';
@@ -36,12 +35,3 @@ export class GenreView extends React.Component {
     );
   }
 }
-
-GenreView.propTypes = {
-  movie: PropTypes.shape({
-    Genre: PropTypes.shape({
-      Name: PropTypes.string.isRequired,
-      Description: PropTypes.string.isRequired,
-    }).isRequired,
-  })
-};

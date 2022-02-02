@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import './director-view.scss';
 import { Container, Row, Col, Button, Card } from 'react-bootstrap';
@@ -37,13 +36,3 @@ export class DirectorView extends React.Component {
     );
   }
 }
-
-DirectorView.propTypes = {
-  movie: PropTypes.shape({
-    Director: PropTypes.shape({
-      Name: PropTypes.string.isRequired,
-      Bio: PropTypes.string.isRequired,
-      ImagePath: PropTypes.string
-    }).isRequired,
-  })
-};
