@@ -115,28 +115,6 @@ export class ProfileView extends React.Component {
         });
       }
 
-      
-      RemoveFavMovie() {
-        const token = localStorage.getItem("token");
-        const username = localStorage.getItem("user");
-    
-        axios
-          .delete(
-            `https://stormy-inlet-21959.herokuapp.com/users/${username}/movies/${this.props.movies._id}`,
-            {},
-            {
-              headers: { Authorization: `Bearer ${token}` },
-              method: "PULL",
-            }
-          )
-          .then((response) => {
-            alert(`Removed from Favourites List`);
-          })
-          .catch(function (error) {
-            console.log(error);
-          });
-      }
-
     
 
 
