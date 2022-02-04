@@ -99,7 +99,7 @@ export class ProfileView extends React.Component {
         const username = localStorage.getItem('user');
         const token = localStorage.getItem('token');
     
-        axios.delete(`https://stormy-inlet-21959.herokuapp.com/users/${username}`, { 
+        axios.delete(`https://stormy-inlet-21959.herokuapp.com/users/${username}/movies/${movie._id}`, { 
           headers: { 
             Authorization: `Bearer ${token}` 
           } 
@@ -110,8 +110,31 @@ export class ProfileView extends React.Component {
           alert("Favourite movie has been removed.");
         })
         .catch(function (error) {
+            console.log(movie_id);
           console.log(error);
         });
+      }
+
+      
+      RemoveFavMovie() {
+        const token = localStorage.getItem("token");
+        const username = localStorage.getItem("user");
+    
+        axios
+          .delete(
+            `https://stormy-inlet-21959.herokuapp.com/users/${username}/movies/${this.props.movies._id}`,
+            {},
+            {
+              headers: { Authorization: `Bearer ${token}` },
+              method: "PULL",
+            }
+          )
+          .then((response) => {
+            alert(`Removed from Favourites List`);
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
       }
 
     
@@ -207,24 +230,24 @@ export class ProfileView extends React.Component {
                                 )}
                                 <Row className="favourite-container">
                                     {FavouriteMovies.length > 0 &&
-                                        movies.map((movie) => {
+                                        movies.map((movies) => {
                                             if (
-                                                movie._id ===
-                                                FavouriteMovies.find((fav) => fav === movie._id)
+                                                movies._id ===
+                                                FavouriteMovies.find((fav) => fav === movies._id)
                                             ) {
                                                 return (
-                                                    <Card className="favourite-movie card-content" key={movie._id} >
+                                                    <Card className="favourite-movie card-content" key={movies._id} >
                                                         <Card.Img
                                                             className="fav-poster"
                                                             variant="top"
-                                                            src={movie.ImagePath}
+                                                            src={movies.ImagePath}
                                                             style={{width:'15.85rem'}}
                                                         />
                                                         <Card.Body style={{ backgroundColor: "black"}}>
                                                             <Card.Title className="movie_title" style={{color: "white"}}>
-                                                                {movie.Title}
+                                                                {movies.Title}
                                                             </Card.Title>
-                                                            <Button size="sm" variant="danger" value={movie._id} onClick={() => this.onRemoveFavuorite(movie)} > Remove </Button>
+                                                            <Button size="sm" variant="danger" value={movies._id} onClick={(e) => this.onRemoveFavuorite(e, movies)} > Remove </Button>
                                                         </Card.Body>
                                                     </Card>
                                                 );
