@@ -37030,7 +37030,7 @@ class ProfileView extends _reactDefault.default.Component {
         this.Birthday = value;
     }
     render() {
-        const { movies: movies1 , onBackClick  } = this.props;
+        const { movies , onBackClick  } = this.props;
         const { FavouriteMovies , Username , Email , Birthday  } = this.state;
         return(/*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Container, {
             className: "profile-view",
@@ -37198,15 +37198,15 @@ class ProfileView extends _reactDefault.default.Component {
                                         }, this),
                                         /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Row, {
                                             className: "favourite-container",
-                                            children: FavouriteMovies.length > 0 && movies1.map((movies)=>{
-                                                if (movies._id === FavouriteMovies.find((fav)=>fav === movies._id
+                                            children: FavouriteMovies.length > 0 && movies.map((movie)=>{
+                                                if (movie._id === FavouriteMovies.find((fav)=>fav === movie._id
                                                 )) return(/*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Card, {
                                                     className: "favourite-movie card-content",
                                                     children: [
                                                         /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Card.Img, {
                                                             className: "fav-poster",
                                                             variant: "top",
-                                                            src: movies.ImagePath,
+                                                            src: movie.ImagePath,
                                                             style: {
                                                                 width: '15.85rem'
                                                             }
@@ -37225,7 +37225,7 @@ class ProfileView extends _reactDefault.default.Component {
                                                                     style: {
                                                                         color: "white"
                                                                     },
-                                                                    children: movies.Title
+                                                                    children: movie.Title
                                                                 }, void 0, false, {
                                                                     fileName: "src/components/profile-view/profile-view.jsx",
                                                                     lineNumber: 225,
@@ -37234,8 +37234,8 @@ class ProfileView extends _reactDefault.default.Component {
                                                                 /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Button, {
                                                                     size: "sm",
                                                                     variant: "danger",
-                                                                    value: movies._id,
-                                                                    onClick: (e)=>this.onRemoveFavuorite(movies)
+                                                                    value: movie._id,
+                                                                    onClick: (e)=>this.onRemoveFavuorite(movie)
                                                                     ,
                                                                     children: " Remove "
                                                                 }, void 0, false, {
@@ -37250,7 +37250,7 @@ class ProfileView extends _reactDefault.default.Component {
                                                             columnNumber: 57
                                                         }, this)
                                                     ]
-                                                }, movies._id, true, {
+                                                }, movie._id, true, {
                                                     fileName: "src/components/profile-view/profile-view.jsx",
                                                     lineNumber: 217,
                                                     columnNumber: 53

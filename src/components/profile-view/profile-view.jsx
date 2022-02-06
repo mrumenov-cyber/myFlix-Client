@@ -208,24 +208,24 @@ export class ProfileView extends React.Component {
                                 )}
                                 <Row className="favourite-container">
                                     {FavouriteMovies.length > 0 &&
-                                        movies.map((movies) => {
+                                        movies.map((movie) => {
                                             if (
-                                                movies._id ===
-                                                FavouriteMovies.find((fav) => fav === movies._id)
+                                                movie._id ===
+                                                FavouriteMovies.find((fav) => fav === movie._id)
                                             ) {
                                                 return (
-                                                    <Card className="favourite-movie card-content" key={movies._id} >
+                                                    <Card className="favourite-movie card-content" key={movie._id} >
                                                         <Card.Img
                                                             className="fav-poster"
                                                             variant="top"
-                                                            src={movies.ImagePath}
+                                                            src={movie.ImagePath}
                                                             style={{width:'15.85rem'}}
                                                         />
                                                         <Card.Body style={{ backgroundColor: "black"}}>
                                                             <Card.Title className="movie_title" style={{color: "white"}}>
-                                                                {movies.Title}
+                                                                {movie.Title}
                                                             </Card.Title>
-                                                            <Button size="sm" variant="danger" value={movies._id} onClick={(e) => this.onRemoveFavuorite(movies)} > Remove </Button>
+                                                            <Button size="sm" variant="danger" value={movie._id} onClick={(e) => this.onRemoveFavuorite(movie)} > Remove </Button>
                                                         </Card.Body>
                                                     </Card>
                                                 );
