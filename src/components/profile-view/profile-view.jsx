@@ -225,7 +225,7 @@ export class ProfileView extends React.Component {
                                                             <Card.Title className="movie_title" style={{color: "white"}}>
                                                                 {movies.Title}
                                                             </Card.Title>
-                                                            <Button size="sm" variant="danger" value={movies._id} onClick={(e) => this.onRemoveFavuorite(e, movies)} > Remove </Button>
+                                                            <Button size="sm" variant="danger" value={movies._id} onClick={(e) => this.onRemoveFavuorite(movies)} > Remove </Button>
                                                         </Card.Body>
                                                     </Card>
                                                 );

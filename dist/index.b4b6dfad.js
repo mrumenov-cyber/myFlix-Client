@@ -37235,7 +37235,7 @@ class ProfileView extends _reactDefault.default.Component {
                                                                     size: "sm",
                                                                     variant: "danger",
                                                                     value: movies._id,
-                                                                    onClick: (e)=>this.onRemoveFavuorite(e, movies)
+                                                                    onClick: (e)=>this.onRemoveFavuorite(movies)
                                                                     ,
                                                                     children: " Remove "
                                                                 }, void 0, false, {
