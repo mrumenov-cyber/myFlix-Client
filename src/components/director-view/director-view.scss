@@ -1,0 +1,21 @@
+.director-back-button:hover, .director-back-button:focus, .director-back-button:active {
+    background: hsl(186, 100%, 38%) !important;
+    border-color: #000 !important;
+  }
+
+  .director-back-button, .director-name{
+    margin-top:40px;
+    align-self: center;
+  }
+
+  .director-back-button{
+    align-self: center;
+    width:80%;
+    margin-bottom: 30px;
+  }
+
+  .director-bio{
+    font-size: larger;
+    margin-top: 20px;
+  }
+

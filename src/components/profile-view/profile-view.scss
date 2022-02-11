@@ -1,0 +1,42 @@
+$backgroud-color: hsl(186, 100%, 38%);
+
+.user-info {
+    margin: 40px 20px;
+}
+
+.update-form {
+    width: 90%;
+    padding: 30px;
+    border-radius: 14px;
+    border: 4px ridge;
+    background-color: $backgroud-color;
+}
+.movie_title {
+    line-height: 2;
+}
+
+.card-content
+{
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 35px;
+    justify-content: center;
+    align-self: center;
+    flex-wrap: nowrap;
+}
+
+@media screen and (max-width: 760px) {
+    .update-form {
+        margin-top: 90px;
+    }
+}
+
+.back-button:hover, .back-button:focus, .back-button:active{
+    background: hsl(186, 100%, 38%) !important;
+    border-color: #000 !important;
+}
+
+.h5 {
+    color: white;
+}
