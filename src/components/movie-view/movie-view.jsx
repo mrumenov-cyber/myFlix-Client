@@ -1,16 +1,12 @@
 import React from 'react';
 import axios from 'axios';
-import PropTypes from 'prop-types';
-import {Form, Button, Card, CardGroup, Container, Row, Col} from 'react-bootstrap';
+import {Button, Card, Container} from 'react-bootstrap';
 import { Link } from "react-router-dom";
 
 import "./movie-view.scss";
 
 
 export class MovieView extends React.Component {
-  constructor(){
-    super();
-  }
 
   addFavouriteMovie() {
     const token = localStorage.getItem("token");
@@ -42,7 +38,7 @@ export class MovieView extends React.Component {
       <Container className="movie-view">
           <Card>
             <div className="movie-poster">
-              <img src={movie.ImagePath} crossOrigin='anonymous' style={{width:'15.85rem'}}/>
+              <img src={movie.ImagePath} alt="movie Flix"  crossOrigin='anonymous' style={{width:'15.85rem'}}/>
             </div>
               <Button className="favourite-button btn btn-primary" value={movie._id} onClick={(e) => this.addFavouriteMovie(e, movie)} >
                         Add to Favourites

@@ -1,5 +1,5 @@
 import React from 'react';
-import {Form, Button, Card, CardGroup, Container, Row, Col} from 'react-bootstrap';
+import {Button, Card} from 'react-bootstrap';
 
 import "./movie-card.scss";
 import { Link } from "react-router-dom";

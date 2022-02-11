@@ -8,7 +8,7 @@ import { setMovies } from '../../actions/actions';
 import MoviesList from '../movies-list/movies-list';
 
 import "./main-view.scss";
-import {Form, Button, Card, CardGroup, Container, Row, Nav, Col, Navbar} from 'react-bootstrap';
+import {Container, Row, Nav, Col, Navbar} from 'react-bootstrap';
 
 import { RegistrationView } from "../registration-view/registration-view";
 //import { MovieCard } from '../movie-card/movie-card';

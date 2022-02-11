@@ -1,9 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import axios from "axios";
-import PropTypes from "prop-types";
 
 import { Form, Button, Card, Container, Row, Col } from "react-bootstrap";
-import { Link } from "react-router-dom";
 
 import "./profile-view.scss";
 import { setUser, updateUser } from "../../actions/actions";

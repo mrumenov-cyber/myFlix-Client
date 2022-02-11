@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
-import {Form, Button, Card, CardGroup, Container, Row, Col, Link} from 'react-bootstrap';
+import {Form, Button} from 'react-bootstrap';
 import './login-view.scss';
 import PropTypes from 'prop-types';
-import { RegistrationView } from "../registration-view/registration-view";
 import axios from 'axios';
-import {MainView} from "../main-view/main-view";
 
 export function LoginView(props) {
   const [username, setUsername] = useState('');
