@@ -227,6 +227,7 @@ export class ProfileView extends React.Component {
                                                     </Card>
                                                 );
                                             }
+                                            return <></>
                                         })}
                                 </Row>
                             </Card.Body>
